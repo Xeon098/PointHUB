@@ -1,0 +1,39 @@
+{% extends 'catalog/base.html' %}{% load static %}{% block content%}
+
+<div class = "container content">
+{% if Booking is not empty %}
+<div class="container">
+    <div class = "row" style = " float :left">
+				{% for instances in Booking %}
+
+					{% if User == instances.user %}
+            <div class="card" style="width:350px" >
+                <img class="card-img-top" src="{{instances.room.hotels.logo.url}}" alt="Card image" height =350px width = 320px>
+            <div class="card-body">
+                <h4 class="card-title">{{instances.room.hotels}}</h4>
+                <p class="card-text">
+									<li>Name :         {{instances.name}}</li>
+									<li>Phone-Number : {{instances.phone_number}}</li>
+									<li>Check_in :     {{instances.check_in}}</li>
+									<li>Check_out :    {{instances.check_out}}</li>
+									<li>Room :         {{instances.room.name}}</li>
+									<li>Capacity :     {{instances.room.capacity}}</li>
+									<li>price :        {{instances.price}}</li>
+								</p>
+
+            </div>
+            </div>
+					{% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+	{% else %}
+	<h3> Currently you have no BOOKINGS!</h3>
+
+	<br>
+
+		{% endif %}
+		</div>
+{% endblock %}
+</div>

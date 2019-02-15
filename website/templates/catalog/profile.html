@@ -1,0 +1,38 @@
+{% extends 'catalog/base.html' %}{% load static %}
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+ {% block content %}
+<style>
+.Div_2{
+    
+    border-style: inset;
+    width : 80%;
+    padding : 5px 5px 5px 5px;
+}
+</style>
+<div class = "container-fluid">
+
+<h3> PROFILE</h2>
+    <div><img src = "{{ inst.img.url }}" align = right height = 200px width = 150px></div><br>
+<div class ="col-4" >
+    <div class = "card" style="width : 700px ; padding:10px" >
+    <div>Username : {{ inst.user }}</div><br>
+    
+    <div>Location : {{ inst.location }}</div><br>
+    <div>Birth Date : {{ inst.birth_date }}</div><br>
+    <div> Phone Number : {{inst.phone}}  </div><bR>
+    <div>Bio : {{ inst.bio }}</div><br>
+    <div class="col-4">
+    
+
+    </div>
+    </div>
+    <br>
+<a href ="/edit/"> <button class="btn">EDIT PROFILE</button></a>
+    </div>
+</div>
+{% endblock %}

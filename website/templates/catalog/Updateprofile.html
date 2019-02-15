@@ -1,0 +1,41 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+ {% block content %}
+<style>
+td,th{
+    padding : 5px;
+}
+.Div_2{
+    
+    border-style: inset;
+    width : 80%;
+    padding : 5px 5px 5px 5px;
+}
+</style>
+<div class = "container-fluid">
+
+<h3> PROFILE</h2>
+<br>
+<form method = 'POST'>
+<div class ="form-group" style="border-top : 1px solid black; padding :20px">
+{% csrf_token %}
+<table >
+{% for field in form %}
+<tr>
+<td> {{ field.label_tag }}</td>
+<td> {{field}}  </td>
+</tr>
+<tr><td>  </td></tr>
+{% endfor %}
+</table>
+<bR>
+<input type =submit>
+</div>
+</form>
+{% endblock %}

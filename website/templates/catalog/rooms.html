@@ -1,0 +1,21 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class = "row" style = "float : left">
+        {% for room in rooms %}
+            <div class="card" style="width:370px">
+                <img class="card-img-top" src="{{ room.hotels.logo.url}}" alt="Card image" height =350px width = 320px>
+            <div class="card-body">
+                <h4 class="card-title">{{room.name}}</h4>
+                <p class="card-text">Price : {{ room.price }}</p>
+                <p class="card-text">Capacity : {{ room.capacity }}</p>
+                <!--<a href="#" class="btn btn-primary"> BOOK</a>-->
+            </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
