@@ -164,10 +164,10 @@ def room_booked(request):
    return render(request,'catalog/roombooked.html')
 
 def booking(request):
-   obs = Booking.objects.all()
-
+   obs = Booking.objects.filter(user = request.user)
+   print(list(obs))
         
-   return render(request,'catalog/booking.html',{'Booking' : obs,'User': request.user} )
+   return render(request,'catalog/booking.html',{'Booking' : list(obs),'User': request.user} )
 
 def profile(request):
     med_root = settings.MEDIA_ROOT
@@ -202,3 +202,8 @@ def allrooms(request,hotel_id):
         if room.hotels.id == int(hotel_id):
             roomlist.append(room)
     return render(request,'catalog/rooms.html',{"rooms" : roomlist})
+
+def cancelBooking(request,Booking_id):
+    print(Booking_id)
+    Booking.objects.get(pk = Booking_id).delete()
+    return redirect(booking)

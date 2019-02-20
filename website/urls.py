@@ -23,6 +23,7 @@ urlpatterns = [
     url('room_booked/',views.room_booked, name = 'room_booked'),   
     url('contact/', views.contact, name='contact'),
     url('edit/',views.user_edit, name="DS"),
+    url('cancelBooking/(\d+)/',views.cancelBooking, name = "cancelbooking"),
     
     
 ] 
